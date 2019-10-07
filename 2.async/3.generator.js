@@ -21,7 +21,7 @@ let it = go("a值");
 //next第一次执行不需要参数，传参数没有意义
 let r1 = it.next();
 //第一次调用next会返回一个对象，此对象有两个属性，一个是value就是yield后面那个值，一个是done表示是否迭代完成
-console.log(r1);//{ value: 'a', done: false }
+console.log(r1);//{ value: 'a值', done: false }
 let r2 = it.next('B值');
 console.log(r2);//{ value: 'B值', done: false }
 let r3 = it.next('C值');

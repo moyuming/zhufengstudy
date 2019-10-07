@@ -10,7 +10,7 @@ function next(){
       console.log(4);
       process.nextTick(function(){
         console.log(5);
-      })// 1 2 4 5 2
+      })// 1 3 4 5 2
     })
   })
 }
