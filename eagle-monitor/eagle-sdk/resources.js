@@ -8,8 +8,8 @@ function filterTime(a, b) {
 let resolvePerformanceTiming = (timing) => {
   let o = {
     initiatorType: timing.initiatorType,
-    name: timing.name,
-    duration: parseInt(timing.duration),
+    name: timing.name,//请求资源名---------->url
+    duration: parseInt(timing.duration),// 请求资源耗时
     redirect: filterTime(timing.redirectEnd, timing.redirectStart), // 重定向
     dns: filterTime(timing.domainLookupEnd, timing.domainLookupStart), // DNS解析
     connect: filterTime(timing.connectEnd, timing.connectStart), // TCP建连
@@ -33,7 +33,6 @@ let resources = {
     if (!performance || !performance.getEntries) {
       return void 0;
     }
-
     if (window.PerformanceObserver) {
       let observer = new window.PerformanceObserver((list) => {
         try {

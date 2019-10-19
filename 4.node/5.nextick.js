@@ -18,5 +18,3 @@ function read(){
  })
 }
 read();
-
-async function

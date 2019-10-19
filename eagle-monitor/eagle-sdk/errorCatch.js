@@ -1,3 +1,6 @@
+/**
+ * 格式化错误信息
+ */
 let formatError = (errObj) => {
   let col = errObj.column || errObj.columnNumber; // Safari Firefox
   let row = errObj.line || errObj.lineNumber; // Safari Firefox
@@ -53,6 +56,7 @@ let errorCatch = {
     };
 
     let _originOnunhandledrejection = window.onunhandledrejection;
+    // onunhandledrejection事件是针对未处理的Promise拒绝引发的。
     window.onunhandledrejection = (...arg) => {
       let e = arg[0];
       let reason = e.reason;

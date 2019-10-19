@@ -7,7 +7,7 @@ let xhrHook = {
     }
     xhr._eagle_flag = true;
 
-    let _originOpen = xhr.prototype.open;
+    let _originOpen = xhr.prototype.open; //缓存原生的open方法
     xhr.prototype.open = function (method, url, async, user, password) {
       // TODO eagle url check
       this._eagle_xhr_info = {
@@ -18,7 +18,7 @@ let xhrHook = {
       return _originOpen.apply(this, arguments);
     };
 
-    let _originSend = xhr.prototype.send;
+    let _originSend = xhr.prototype.send;//缓存原生的send方法
     xhr.prototype.send = function (value) {
       let _self = this;
       this._eagle_start_time = Date.now();
@@ -57,7 +57,7 @@ let xhrHook = {
       if (this.addEventListener) {
         this.addEventListener('load', ajaxEnd('load'), false);
         this.addEventListener('error', ajaxEnd('error'), false);
-        this.addEventListener('abort', ajaxEnd('abort'), false);
+        this.addEventListener('abort', ajaxEnd('abort'), false);//请求中断
       } else {
         let _origin_onreadystatechange = this.onreadystatechange;
         this.onreadystatechange = function (event) {
