@@ -7,9 +7,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "debug webpack",
-            "cwd":"${workspaceFolder}",
-            "program":"${workspaceFolder}/35.webpack/vscode-debugger.js"
+            "name": "Launch Program",
+            "program": "${workspaceFolder}\\vscode-debugger.js"
         }
     ]
 }

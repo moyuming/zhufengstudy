@@ -7,7 +7,6 @@ let loaders = [
         return 1;   
     },
     function(callback){
-      
         setTimeout(function(){
             console.log(2); 
             callback();
