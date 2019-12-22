@@ -10,4 +10,4 @@ console.log(require.cache);
 let mime = require('mime');
 console.log(mime.getType('a.jpg'));
 //npm 2 3  是内嵌式的,从npm4改变了。
-//1.window下文件夹的深 度是有限制
+//1.window下文件夹的深度是有限制

@@ -11,7 +11,7 @@ console.log(buf3);
 
 //let buf4 = Buffer.alloc(6);
 // console.log(buf4);
-// //1填充的值 2 填充的开始索引 3 结束 索引
+// //1填充的值 2 填充的开始索引 3 结束索引
 // buf4.fill(3,1,3);// [0,3,3,0]
 // console.log(buf4);
 //1写的字符串 2填充的开始索引 3填充的字节长度 编码
