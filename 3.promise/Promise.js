@@ -1,6 +1,6 @@
-const PENDING =  'pending';//初始态
-const FULFILLED =  'fulfilled';//初始态
-const REJECTED =  'rejected';//初始态
+const PENDING =  'pending';//进行中
+const FULFILLED =  'fulfilled';//已成功
+const REJECTED =  'rejected';//已失败
 function Promise(executor){
   let self = this;//先缓存当前promise实例
   self.status = PENDING;//设置状态
@@ -25,7 +25,6 @@ function Promise(executor){
         self.onResolvedCallbacks.forEach(cb=>cb(self.value));
       }
     })
-
   }
   function reject(reason){ //2.1.2
     setTimeout(function(){
@@ -36,7 +35,6 @@ function Promise(executor){
         self.onRejectedCallbacks.forEach(cb=>cb(self.value));
       }
     });
-
   }
   try{
     //因为此函数执行可能会异常，所以需要捕获，如果出错了，需要用错误 对象reject
@@ -205,27 +203,4 @@ Promise.reject = function(reason){
 module.exports = Promise;
 
 
-function Event() {
-    this.event = {};
-}
-Event.prototype.on = function (type,callBack) {
-    if(this.event[type]){
-        this.event[type].push(callBack);
-    }else{
-        this.event[type] = [callBack];
-    }
-};
-Event.prototype.emit = function (type,...data) {
-    this.event[type].forEach((item)=>item(...data));
-};
-let event = new Event();
-function fn1(){
-   console.log('吃饭');
-}
-function fn2(){
-    console.log('工作');
-}
-event.on('我的一天',fn1);
-event.on('我的一天',fn2);
-event.emit('我的一天');
 
