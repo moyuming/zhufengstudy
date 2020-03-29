@@ -1,9 +1,9 @@
 let net = require('net');
-//创建一个服务器
-// 广播 b:内容    此客户端想要向所有的其它客户端广播 
+// 创建一个服务器
+// 广播 b:内容               此客户端想要向所有的其它客户端广播 
 // 私聊 c:对方的用户名:内容   想向指定用户名发消息
-// 列出在线用户列表 l   表示列出所有的在线用户信息列表
-// 修改呢称  n:新名字 表示此客户端想修改自己的名称
+// 列出在线用户列表 l         表示列出所有的在线用户信息列表
+// 修改呢称  n:新名字         表示此客户端想修改自己的名称
 let clients = {};
 let server = net.createServer(function (socket) {
     let key = socket.remoteAddress + socket.remotePort;
