@@ -17,7 +17,7 @@ class Zhufeng {
                 let val = data[key];
                 if (typeof val === 'object') { // {a:1}应该让这个对象也被代理
                     o(val); // 如果是对象继续拦截
-                    data[key] = defineReactive(val); // 将代理的方法替换掉原有的内容
+                    data[key] = defineReactive(val); // 将代理的对象替换掉原有的对象
                 }
             }
         }

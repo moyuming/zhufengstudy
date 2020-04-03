@@ -1,10 +1,10 @@
 //当客户端访问服务器的时候，服务器会发送给客户端一个文件
 let net = require('net');
 let path = require('path');
-let rs = require('fs').createReadStream(path.join(__dirname, '1.test'));
+let rs = require('fs').createReadStream(path.join(__dirname, 'msg.txt'));
 net.createServer(function (socket) {
     rs.on('data', function (data) {
-        let flag = socket.write(data);//可写流缓存区是否满 了
+        let flag = socket.write(data);//可写流缓存区是否满了
         console.log('flag=', flag);
         console.log('缓存的字节数=', socket.bufferSize);
     });

@@ -17,11 +17,11 @@ function *go(a){
 }
 //生成器函数和普通的函数不一样，调用它的话函数并不会立刻执行
 //它会返回此生成器的迭代器,迭代器是一个对象，每调用一次next就可以返回一个值对象
-let it = go("a值");
+let it = go("A值");
 //next第一次执行不需要参数，传参数没有意义
 let r1 = it.next();
 //第一次调用next会返回一个对象，此对象有两个属性，一个是value就是yield后面那个值，一个是done表示是否迭代完成
-console.log(r1);//{ value: 'a值', done: false }
+console.log(r1);//{ value: 'A值', done: false }
 let r2 = it.next('B值');
 console.log(r2);//{ value: 'B值', done: false }
 let r3 = it.next('C值');

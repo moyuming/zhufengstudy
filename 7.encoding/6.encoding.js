@@ -1,6 +1,6 @@
 /**
  * 1.如何把一个unicode码转成utf8编码
- * 传进去一个unicode码，返回一个utf8编码 万 4E07
+ * 传进去一个unicode码，返回一个utf8编码 （万 4E07）
  * Unicode符号范围     |        UTF-8编码方式
  (十六进制)        |              （二进制）
  ----------------------+---------------------------------------------
@@ -12,7 +12,7 @@
 
 // 0x 16 进制
 //unicode都是十六进制,所有的汉字都是3个字节
-let r = transfer(0x4E07);
+// let r = transfer(0x4E07);
 /*
 let b = parseInt(0x4E07.toString(2));
 console.log(b);//100111000000111
@@ -39,8 +39,10 @@ function transfer(number){
   arr[2] += str.substring(str.length-6);
   arr[1] += str.substring(str.length-12,str.length-6);
   arr[0] += str.substring(0,str.length-12).padStart(4,'0');
-    let result =  arr.join('');
-    return parseInt(result,2).toString(16);
+  let result =  arr.join('');
+  console.log(result)
+  console.log(parseInt(result,2))
+  return parseInt(result,2).toString(16);
 }
-let r2 = transfer(0x65);
+let r2 = transfer(0x4E07);
 console.log(r2);

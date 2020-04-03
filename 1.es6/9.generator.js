@@ -1,8 +1,6 @@
 /**
  * 生成器(Generator)与迭代器(Iterator)
  * 它是理解koa的基础，另外也是现代异步解决方案async await的基础
- */
-/**
  * read生成器 用来生成迭代器的
  */
 function read(books){
@@ -23,7 +21,7 @@ function read(books){
 //当done为true的时候就表示取完了
 let it = read(['js','node','mysql']);
 //it有一个方法叫next,每次调用next都会返回一个结果 {value,done}
-let result ;
+let result;
 do{
   result = it.next();
   console.log(result);

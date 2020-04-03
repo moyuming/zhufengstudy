@@ -88,12 +88,12 @@ function render(length,cb){
     }
   }
 }
-let done = render(3,function(html){
+let done = render(2,function(html){
   console.log(html);
 });
-fs.readFile('./template.txt', 'utf8', function (err, template) {
+fs.readFile('./2.async/template.txt', 'utf8', function (err, template) {
   done('template',template);
 })
-fs.readFile('./data.txt', 'utf8', function (err, data) {
+fs.readFile('./2.async/data.txt', 'utf8', function (err, data) {
   done('data',data);
 })

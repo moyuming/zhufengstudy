@@ -11,6 +11,5 @@ function desc(strings,...values){
   return result.toUpperCase();
 }
 //带标签的模板字符串就像一个函数调用,参数1是文本的数组，参数2是变量的数组
-let str = desc`${name} 今年 
-${age} 岁了`;
+let str = desc`${name} 今年${age} 岁了`;
 console.log(str);

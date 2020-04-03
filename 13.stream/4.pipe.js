@@ -1,7 +1,7 @@
 let {Writable,Readable} = require('stream');
 let i = 0;
 let rs = Readable({
-     highWaterMark:2,
+    highWaterMark:2,
     read(){
         if(i<10){
               this.push(''+i++);  
@@ -17,7 +17,6 @@ let ws = Writable({
        //callback();
     }
 });
-
 rs.pipe(ws);
 setTimeout(function(){
    console.log(rs._readableState.buffer);//2
