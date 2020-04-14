@@ -1,5 +1,6 @@
 let { SyncWaterfallHook } = require('tapable');
 let queue = new SyncWaterfallHook(['name']);
+//上一步的返回值交给下一步使用
 queue.tap('1', function (name) {
     console.log(name, 1);
     return 1;

@@ -1,6 +1,7 @@
 let { AsyncParallelBailHook } = require('tapable');
 let queue = new AsyncParallelBailHook(['name']);
 console.time('cost');
+//带保险的异步并行执行钩子,只要有一个任务有resolve或者reject值，不管成功失败都结束
 queue.tapPromise('1', function (name) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {

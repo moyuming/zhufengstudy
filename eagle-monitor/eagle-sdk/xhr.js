@@ -72,7 +72,7 @@ let xhrHook = {
       return _originSend.apply(this, arguments);
     };
 
-    // fetch hook
+    // Fetch 是浏览器提供的原生 AJAX 接口(IE不支持)。使用 window.fetch 函数可以代替以前的 $.ajax、$.get和 $.post。
     if (window.fetch) {
       let _origin_fetch = window.fetch;
       window.fetch = function () {

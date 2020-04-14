@@ -1,6 +1,7 @@
 let { AsyncParallelHook } = require('tapable');
 let queue = new AsyncParallelHook(['name']);
 // console.time('cost');
+// //同步注册
 // queue.tap('1', function (name) {
 //     console.log(name, 1);
 // });
@@ -14,8 +15,9 @@ let queue = new AsyncParallelHook(['name']);
 //     console.log(err);
 //     console.timeEnd('cost');
 // });
-
+//===============================================================================
 // console.time('cost');
+// //异步注册，全部任务完成后执行最终的回调
 // queue.tapAsync('1', function (name, cb) {
 //     setTimeout(function () {
 //         console.log(name, 1);
@@ -29,7 +31,7 @@ let queue = new AsyncParallelHook(['name']);
 //     },2000);
 // });
 // queue.tapAsync('3', function (name, cb) {
-
+//
 //     setTimeout(function () {
 //         console.log(name, 3);
 //         cb();
@@ -39,8 +41,9 @@ let queue = new AsyncParallelHook(['name']);
 //     console.log(err);
 //     console.timeEnd('cost');
 // });
-
+//===================================================================================
 console.time('cost');
+//promise注册钩子,全部完成后执行才算成功
 queue.tapPromise('1', function (name) {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {

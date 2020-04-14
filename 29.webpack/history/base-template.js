@@ -32,14 +32,14 @@
     // 暴露缓存的模块对象
     __webpack_require__.c = installedModules;
 
-    // 为harmony导出定义getter函数
+    // 通过getter的方式增加属性
     __webpack_require__.d = function (exports, name, getter) {
         if (!__webpack_require__.o(exports, name)) {
             Object.defineProperty(exports, name, { enumerable: true, get: getter });
         }
     };
 
-    //在导出对象上定义__esModule属性
+    //在导出对象上定义__esModule属性,表示此对象是一个ES6模块对象
     __webpack_require__.r = function (exports) {
         if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
             Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
@@ -47,12 +47,12 @@
         Object.defineProperty(exports, '__esModule', { value: true });
     };
 
-   /**
+   /**把任意模块包装成ES6模块
    * 创建一个模拟的命名空间对象
-   * mode & 1 value是模块ID直接用__webpack_require__加载
-   * mode & 2 把所有的属性合并到命名空间ns上
-   * mode & 4 当已经是命名空间的时候(__esModule=true)可以直接返回值
-   * mode & 8|1 行为类似于require
+   * mode & 1 表示传的是模块ID
+   * mode & 2 需要合并属性,把所有的属性合并到命名空间ns上
+   * mode & 4 如果是ES6模块直接返回
+   * mode & 8|1 等同于require方法
    */
     __webpack_require__.t = function (value, mode) {
         if (mode & 1) value = __webpack_require__(value);
@@ -64,7 +64,7 @@
         if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) { return value[key]; }.bind(null, key));
         return ns;
     };
-    // getDefaultExport函数为了兼容那些非non-harmony模块
+    //为了兼容那些非non-harmony模块,获取module对象的默认导出
     __webpack_require__.n = function (module) {
         var getter = module && module.__esModule ?
             function getDefault() { return module['default']; } :
